@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  root 'pages#welcome'
+
   resources :providers, :jobs, :contacts, :users
   #resourceful route declares routes for index, show, new, edit, create, update and destroy actions
 
-  # get 'profile' to :show, controller 'providers'
-  # will allow us to map a singular resource to map /profile to show action
+  get 'register', to: 'providers#new'
+  # allows us to use a single resource to map /register to provider#new action
 
 end
 
