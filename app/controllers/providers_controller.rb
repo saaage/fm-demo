@@ -37,7 +37,10 @@ class ProvidersController < ApplicationController
   end
 
   def destroy
+    @provider = Provider.find(params[:id])
+    @provider.destroy
 
+    redirect_to providers_path
   end
 
   private

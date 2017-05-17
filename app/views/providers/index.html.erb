@@ -9,6 +9,7 @@
       <td><%= provider.name %></td>
       <td><%= link_to 'Show', provider_path(provider) %></td>
       <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+      <td><%= link_to 'Delete', provider_path(provider), method: :delete , data: { confirm: 'Are you sure?'} %></td>
     </tr>
   <% end %>
 </table>
