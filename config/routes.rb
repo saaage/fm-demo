@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#welcome'
 
-  resources :providers, :jobs, :contacts, :users
+  resources :providers, :jobs, :contacts, :clients, :users
   #resourceful route declares routes for index, show, new, edit, create, update and destroy actions
 
   get 'register', to: 'providers#new'
