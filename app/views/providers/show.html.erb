@@ -1,6 +1,9 @@
-<h1>Welcome, <%= @provider.name %>!</h1>
+<h2>Provider Name: <%= @provider.name %></h2>
 
 <h4>Profile Information</h3>
 <p>Specialty: <%= @provider.specialty %> </p>
 <p>Email:  <%= @provider.email %></p>
 <p>Experience: <%= @provider.experience%> </p>
+
+<%= link_to 'Edit', edit_provider_path(@provider)%>
+<%= link_to 'Back', providers_path%>
