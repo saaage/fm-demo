@@ -1,18 +1,23 @@
-<table>
+<h2>FleetMED Providers</h2>
 
+<%= link_to 'New Provider', new_provider_path %>
+<%= link_to 'Home', root_path %>
+
+<br><br>
+
+<table>
   <tr>
-    <th>List Of Providers</th>
+    <th>Name</th>
+    <th>Specialty</th>
   </tr>
 
   <% @providers.each do |provider| %>
     <tr>
       <td><%= provider.name %></td>
+      <td><%= provider.specialty %></td>
       <td><%= link_to 'Show', provider_path(provider) %></td>
       <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
       <td><%= link_to 'Delete', provider_path(provider), method: :delete , data: { confirm: 'Are you sure?'} %></td>
     </tr>
   <% end %>
 </table>
-<br>
-<%= link_to 'Add New Provider', new_provider_path %>
-<%= link_to 'Home', root_path %>

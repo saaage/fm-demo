@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517011826) do
+ActiveRecord::Schema.define(version: 20170517225659) do
+
+  create_table "acceptances", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "clients", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,11 +32,39 @@ ActiveRecord::Schema.define(version: 20170517011826) do
     t.index ["client_id"], name: "index_contacts_on_client_id"
   end
 
+  create_table "declines", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.date "start"
+    t.date "end"
+    t.date "fillby"
+    t.datetime "created"
+    t.integer "contact_id"
+    t.integer "client_id"
+    t.string "status"
+    t.integer "acceptance_id"
+    t.integer "decline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["acceptance_id"], name: "index_jobs_on_acceptance_id"
+    t.index ["client_id"], name: "index_jobs_on_client_id"
+    t.index ["contact_id"], name: "index_jobs_on_contact_id"
+    t.index ["decline_id"], name: "index_jobs_on_decline_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
     t.decimal "experience"
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
