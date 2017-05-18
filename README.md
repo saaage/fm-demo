@@ -1,25 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started with the app, clone the repo and then install the needed gems:
 
-Things you may want to cover:
+```
+$ bundle install
+```
 
-* Ruby version
+Next, migrate the database:
 
-* System dependencies
+```
+$ rails db:migrate
+```
 
-* Configuration
+Finally, run the test suite to verify that everything is working correctly:
 
-* Database creation
+```
+$ rails test
+```
 
-* Database initialization
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* How to run the test suite
+```
+$ rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # fm-demo
