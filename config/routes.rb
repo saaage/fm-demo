@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   get 'register', to: 'providers#new'
   # allows us to use a single resource to map /register to provider#new action
-
   get 'search', to: 'pages#search'
+  get 'dashboard', to: 'pages#home'
 
 end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
