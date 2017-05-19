@@ -68,6 +68,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  database: fmdemo_production
+  host: localhost
   # database: fmdemo_production
   # username: myapp
   # password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
