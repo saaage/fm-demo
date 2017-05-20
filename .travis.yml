@@ -1,3 +1,10 @@
+addons:
+  postgresql: "9.4"
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -U postgres -c "create extension postgis"
+
 language: ruby
 
 rvm:
@@ -5,10 +12,3 @@ rvm:
 
 services:
   - postgresql
-
-before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - psql -U postgres -c "create extension postgis"
-
-addons:
-  postgresql: "9.4"
