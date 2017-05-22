@@ -12,10 +12,10 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "#{@base_title} Login"
   end
 
-  test "should get register" do
-    get '/register'
+  test "should get signup" do
+    get '/signup'
     assert_response :success
-    assert_select "title", "#{@base_title} Register"
+    assert_select "title", "#{@base_title} Sign Up"
   end
 
   test "should get search" do
