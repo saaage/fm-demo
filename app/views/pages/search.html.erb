@@ -1,2 +1,33 @@
 <% provide(:title, "Search") %>
+
+
 <h1>Search Page</h1>
+
+<%= form_for :query do |f| %>
+
+  <span>
+      <%= f.label :name %>:
+      <%= f.text_field :name %><br>
+  </span>
+
+  <span>
+    <%= f.label :specialty %>:
+    <%= f.text_field :specialty %><br>
+  </span>
+
+  <span>
+      <% f.label :experience %>
+      <label>Years of Experience:</label>
+      <%= f.text_field :experience %><br>
+  </span>
+
+  <span>
+      <%= f.label :email %>:
+      <%= f.text_field :email %><br>
+  </span>
+
+  <span>
+    <%= f.submit :Save %><br>
+  </span>
+  
+<% end %>
