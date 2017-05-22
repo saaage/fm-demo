@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   root 'pages#login'
 
   resources :providers, :jobs, :contacts, :clients, :users
