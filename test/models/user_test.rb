@@ -33,11 +33,13 @@ class UserTest < ActiveSupport::TestCase
 
   test "should validate email address" do
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+    # an array of valid email addresses
 
     valid_addresses.each do |valid_address|
       @user.email = valid_address
       assert @user.valid?, "#{valid_address.inspect} should be valid"
     end
+    # for each email in the array, check validity and return any failing email addresses
   end
 
   test "email should be unique" do
@@ -45,6 +47,15 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
+    # email when converted to uppercase for comparison, should not match an existing email in the database
+  end
+
+  test "email should be saved as lower-case" do
+    mixed_case_email = "FoO@ExAMPle.CoM"
+    @user.email = mixed_case_email
+    @user.save
+    assert_equal mixed_case_email.downcase, @user.reload.email
+    # this tests that User.rb converts our mixed_case_email back to lower-case before saving
   end
 
 end
