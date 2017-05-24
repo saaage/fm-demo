@@ -45,15 +45,6 @@ ActiveRecord::Schema.define(version: 20170524175204) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "jobs", force: :cascade do |t|
-    t.date "start"
-    t.date "end"
-    t.date "fillby"
-    t.datetime "created"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
