@@ -9,7 +9,7 @@ class User < ApplicationRecord
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false }
   has_secure_password
-  # requires 'bcrypt' gem - allows us to hash a user password before adding it to our database
+  # requires 'bcrypt' gem - looks for a password_digest column in our users table
   validates :password,  presence: true, length: { minimum: 6 }
 
 
