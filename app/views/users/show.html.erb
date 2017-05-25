@@ -1,0 +1,6 @@
+<% provide(:title, @user.name) %>
+<h2>
+  <%= gravatar_for @user %>
+  <!-- Gravatar is a free service that allows users to upload images and associate them with email addresses they control; http://en.gravatar.com/ -->
+  <%= @user.name %>
+</h2>
