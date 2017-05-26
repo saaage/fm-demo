@@ -5,7 +5,7 @@
   <%= form_for(@user) do |f| %>
     <%= f.text_field :name, :class => "registrationForm__input", :placeholder => "Name" %>
     <%= f.text_field :email, :class => "registrationForm__input", :placeholder => "Email" %>
-    <%= f.text_field :email, :class => "registrationForm__input", :placeholder => "Password", :type => "password" %>
-    <%= f.text_field :email, :class => "registrationForm__input", :placeholder => "Confirm Password", :type => "password" %>
+    <%= f.text_field :password, :class => "registrationForm__input", :placeholder => "Password", :type => "password" %>
+    <%= f.text_field :password_confirmation, :class => "registrationForm__input", :placeholder => "Confirm Password", :type => "password" %>
   <% end %>
 </div>
