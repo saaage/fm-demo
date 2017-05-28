@@ -3,6 +3,7 @@
 <div class="main">
   <%= form_for(@user, :html => {:class => "registrationForm"}) do |f| %>
   <!-- # 'form_for @user' routes our submit button to the create method for User  -->
+  <%= render 'shared/error_messages' %>
     <%= f.text_field :name, :class => "registrationForm__input", :placeholder => "Name" %>
     <%= f.email_field :email, :class => "registrationForm__input", :placeholder => "Email" %>
     <%= f.password_field :password, :class => "registrationForm__input", :placeholder => "Password" %>
