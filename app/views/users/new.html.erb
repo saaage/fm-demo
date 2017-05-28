@@ -1,11 +1,14 @@
 <% provide(:title, "Sign Up")%>
-<h1>Sign Up For FleetMED</h1>
 
-<div class="registrationForm">
-  <%= form_for(@user) do |f| %>
+<div class="main">
+  <%= form_for(@user, :html => {:class => "registrationForm"}) do |f| %>
+  <!-- # 'form_for @user' routes our submit button to the create method for User  -->
     <%= f.text_field :name, :class => "registrationForm__input", :placeholder => "Name" %>
-    <%= f.text_field :email, :class => "registrationForm__input", :placeholder => "Email" %>
-    <%= f.text_field :password, :class => "registrationForm__input", :placeholder => "Password", :type => "password" %>
-    <%= f.text_field :password_confirmation, :class => "registrationForm__input", :placeholder => "Confirm Password", :type => "password" %>
+    <%= f.email_field :email, :class => "registrationForm__input", :placeholder => "Email" %>
+    <%= f.password_field :password, :class => "registrationForm__input", :placeholder => "Password" %>
+    <%= f.password_field :password_confirmation, :class => "registrationForm__input", :placeholder => "Confirm Password" %>
+    <span class="registrationForm__saveSection">
+      <%= f.submit "Create Account", class: "registrationForm__save"%>
+    </span>
   <% end %>
 </div>
