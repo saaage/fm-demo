@@ -1,7 +1,7 @@
 <% provide(:title, "Sign Up")%>
 
 <div class="main">
-  <%= form_for(@user, :html => {:class => "registrationForm"}) do |f| %>
+  <%= form_for(@user, url: signup_path, :html => {:class => "registrationForm"}) do |f| %>
   <!-- # 'form_for @user' routes our submit button to the create method for User  -->
   <%= render 'shared/error_messages' %>
     <%= f.text_field :name, :class => "registrationForm__input", :placeholder => "Name" %>
