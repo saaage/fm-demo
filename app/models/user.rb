@@ -12,5 +12,12 @@ class User < ApplicationRecord
   # requires 'bcrypt' gem - looks for a password_digest column in our users table
   validates :password,  presence: true, length: { minimum: 6 }
 
+  # adding a digest method for use in fixures
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    # redifining computational 'cost' so that hash is easier to digest
+    BCrypt::Password.create(string, cost: cost)
+  end
 
 end
