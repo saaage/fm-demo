@@ -1,0 +1,25 @@
+<% provide(:title, "Edit Profile")%>
+
+<div class="main">
+
+  <div class="editProfileForm__gravatar">
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+  </div>
+
+  <%= form_for(@user, :html => {:class => "registrationForm"}) do |f| %>
+  <!-- # 'form_for @user' routes our submit button to the create method for User  -->
+  <!-- this markup appears here as well as 'new', can be refactored and rendered as a partial -->
+  <%= render 'shared/error_messages' %>
+    <%= f.text_field :name, :class => "registrationForm__input", :placeholder => "Name" %>
+    <%= f.email_field :email, :class => "registrationForm__input", :placeholder => "Email" %>
+    <%= f.password_field :password, :class => "registrationForm__input", :placeholder => "Password" %>
+    <%= f.password_field :password_confirmation, :class => "registrationForm__input", :placeholder => "Confirm Password" %>
+    <span class="registrationForm__saveSection">
+      <%= f.submit "Save Changes", class: "registrationForm__save"%>
+    </span>
+  <% end %>
+
+  <!-- Since .new_record? will return false for a registered user, this form_for submits a PATCH request to the user_path as well as utilizes the update_attributes method to validate before updating the database. Rails Magic. -->
+
+</div>

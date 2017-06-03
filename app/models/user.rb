@@ -14,7 +14,8 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false }
   has_secure_password
   # requires 'bcrypt' gem - looks for a password_digest column in our users table
-  validates :password,  presence: true, length: { minimum: 6 }
+  validates :password,  presence: true, length: { minimum: 6 }, allow_nil: true
+  # allow_nil allows bypasses the initial presence validation, but has_secure_password stops nil passwords from being stored into the DB. this allows users to update their profile information without having to enter their password each time
 
   # adding a digest method for use in fixtures
   def User.digest(string)
