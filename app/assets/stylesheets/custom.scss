@@ -7,20 +7,52 @@
   box-sizing:         border-box;
 }
 
-// styling for our debug section
+styling for our debug section
 .debug_dump {
   clear: both;
   float: left;
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
-  border: 1px dashed gray;
 }
 
-.appbody {
-  background-color: $lightblue;
+/* header */
+.header {
+  background-color: rgba(92, 92, 92, .80);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 1024px;
+  align-content: center;
+  height: 45px;
+}
+
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 52px;
+}
+
+.navbar__link {
+  color: white;
+  font-family: 'Open Sans';
+  text-decoration: none;
+}
+
+.navbar ul li {
+  list-style-type: none;
+}
+
+.navbar ul {
+  padding: none;
+}
+
+.alert-danger {
+  background-color: #F15050;
+  border: 1px solid #e84e4f;
+  color: white;
+  font-family: 'Open Sans';
+  font-size: 16px;
+}
+
+.alert__message {
+  margin-left: 52px;
 }

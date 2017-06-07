@@ -1,27 +1,25 @@
 <% provide(:title, "Login") %>
 
+<div class='login__container'>
   <%= form_for(:session, url: login_path, :html => { :class => 'login__form'}) do |f| %>
 
-    <div class="login__form--inputcontainer">
-      <%= f.email_field :email, :class => 'login__form--email login__form--input', :placeholder => 'Email' %>
-    </div>
+  <div class="login__form--inputcontainer">
+    <%= f.email_field :email, :class => 'login__form--email login__form--input', :placeholder => 'Email' %>
+  </div>
 
-    <div class="login__form--inputcontainer">
-      <%= f.password_field :password, :class => 'login__form--input', :placeholder => 'Password'  %>
-    </div>
+  <div class="login__form--inputcontainer">
+    <%= f.password_field :password, :class => 'login__form--input', :placeholder => 'Password'  %>
+  </div>
 
-    <div class='login__rememberbox'>
-      <%= f.check_box :remember_me %>
-      <span class='login__remembertext'>Remember me on this computer</span>
-    </div>
+  <div class='login__rememberbox'>
+    <%= f.check_box :remember_me %>
+    <span class='login__remembertext'>Remember me on this computer</span>
+  </div>
 
 
-    <div class='login__submitcontainer'>
-      <%= f.submit "Sign In", :class => 'login__submit' %>
-    </div>
+  <div class='login__submitcontainer'>
+    <%= f.submit "Sign In", :class => 'login__submit' %>
+  </div>
 
   <% end %>
-
-
-
-<p>New user? <%= link_to "Register", signup_path %></p>
+</div>

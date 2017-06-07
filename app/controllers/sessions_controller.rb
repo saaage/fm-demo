@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       # log_in defined in session_helper, allows us to export it's use to other controllers
       redirect_to user
     else
-      flash.now[:danger] = "Invalid email/password combination"
+      flash.now[:danger] = "Oops! Invalid email/password combination."
       render 'new'
     end
   end

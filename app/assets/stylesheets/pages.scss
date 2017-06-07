@@ -1,5 +1,13 @@
 @import "partials/variables";
 
+.login__container {
+  background-color: $lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 1024px;
+}
+
 // Login Styles
 .login__form {
   align-self: center;
