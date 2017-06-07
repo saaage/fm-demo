@@ -3,7 +3,7 @@
   <%= form_for(:session, url: login_path, :html => { :class => 'login__form'}) do |f| %>
 
     <div class="login__form--inputcontainer">
-      <%= f.email_field :email, :class => 'login__form--input', :placeholder => 'Email' %>
+      <%= f.email_field :email, :class => 'login__form--email login__form--input', :placeholder => 'Email' %>
     </div>
 
     <div class="login__form--inputcontainer">

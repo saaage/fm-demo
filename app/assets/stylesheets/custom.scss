@@ -1,6 +1,4 @@
-// core styles here
-
-@import 'normalize';
+@import 'normalize/import-now'; // import-now allows us to skip using mixin for each class
 @import 'partials/variables';
 
 @mixin box_sizing {

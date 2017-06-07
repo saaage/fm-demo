@@ -1,7 +1,3 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 @import "partials/variables";
 
 // Login Styles
@@ -35,6 +31,10 @@
   width: 356px;
 }
 
+.login__form--email {
+  align-self: flex-end;
+}
+
 .login__rememberbox {
   align-self: center;
   flex: 1;
@@ -43,7 +43,10 @@
 }
 
 .login__remembertext {
-  color: $lightblue;
+  color: #CBCBCB;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 100;
 }
 
 .login__submitcontainer {
@@ -56,6 +59,7 @@
   background-color: #45AD56;
   color: white;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 18px;
   border-radius: 15px;
   height: 50px;
