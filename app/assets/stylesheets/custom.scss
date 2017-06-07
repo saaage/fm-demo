@@ -1,11 +1,13 @@
+@import 'normalize/import-now'; // import-now allows us to skip using mixin for each class
+@import 'partials/variables';
+
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
 
-/* miscellaneous */
-
+// styling for our debug section
 .debug_dump {
   clear: both;
   float: left;
@@ -13,4 +15,12 @@
   margin-top: 45px;
   @include box_sizing;
   border: 1px dashed gray;
+}
+
+.appbody {
+  background-color: $lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 1024px;
 }

@@ -29,7 +29,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
+gem 'normalize-scss'
+# a collection of html elements and attribute rulesets to normalize styles across all browsers
+gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
