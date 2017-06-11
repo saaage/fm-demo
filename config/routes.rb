@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'pages#welcome'
 
   resources :providers, :jobs, :contacts, :clients, :users
   #resourceful route declares routes for index, show, new, edit, create, update and destroy actions

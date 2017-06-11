@@ -1,17 +1,21 @@
 <header class='header'>
   <nav class='navbar'>
     <ul>
+
       <% if logged_in? %>
         <li><%= link_to "Search", '#' %></li>
         <li><%= link_to "Profile", current_user %></li>
         <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
           <!-- edit_user_path named route accepts our defined current_user as an argument to return the current user -->
         <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+
       <% elsif controller_name == 'sessions' && ( controller.action_name == 'new' || controller.action_name == 'create' ) %>
         <li><%= link_to "SIGN UP", signup_path, :class => 'navbar__link' %></li>
+
       <% else %>
         <li><%= link_to "SIGN UP", signup_path, :class => 'navbar__link' %></li>
         <li><%= link_to "LOGIN", login_path %></li>
+
       <% end %>
     </ul>
   </nav>

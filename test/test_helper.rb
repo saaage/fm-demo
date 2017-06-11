@@ -11,6 +11,7 @@ class ActiveSupport::TestCase
   end
 
   def log_in_as(user)
+  # used for controller tests since we can maninpulate session[:user_id] directly
     session[:user_id] = user.id
   end
 
