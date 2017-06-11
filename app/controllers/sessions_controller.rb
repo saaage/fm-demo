@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      # log_in defined in session_helper, allows us to export it's use to other controllers
-      redirect_to user
+      redirect_back_or user
+      # redirect to originally requested page, or user
+      # rails * redirect_to are clever enough to receive an object and know that we should render 'show' with user[:id]
     else
       flash.now[:danger] = "Oops! Invalid email/password combination."
       render 'new'

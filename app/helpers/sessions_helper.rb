@@ -1,9 +1,21 @@
 module SessionsHelper
+# in ROR helper modules are chunks of reusable code - to be utilized by its corresponding controller. we can also expose this module to application_controller.rb to give our other controllers access to these methods as well
 
   # Logs in given user
   def log_in(user)
     session[:user_id] = user.id
     # creates a temp cookie and with user.id and places on users browser, which will expire when the window is closed
+  end
+
+  # redirects to forwarding_url (if it exists) or to default
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # stores the uRL trying to be accessed
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 
   def current_user
@@ -16,6 +28,10 @@ module SessionsHelper
         @current_user = user
       end
     end
+  end
+
+  def current_user?(user)
+    user == current_user
   end
 
   def logged_in?

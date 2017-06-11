@@ -6,10 +6,10 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     @base_title = "FleetMED |"
   end
 
-  test "should get login" do
+  test "should get welcome" do
     get '/'
     assert_response :success
-    assert_select "title", "#{@base_title} Login"
+    assert_select "title", "#{@base_title} Welcome"
   end
 
   test "should get signup" do

@@ -4,6 +4,7 @@
 
       <% if logged_in? %>
         <li><%= link_to "Search", '#' %></li>
+        <li><%= link_to "Users", users_path %></li>
         <li><%= link_to "Profile", current_user %></li>
         <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
           <!-- edit_user_path named route accepts our defined current_user as an argument to return the current user -->

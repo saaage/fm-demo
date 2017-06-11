@@ -34,6 +34,8 @@ gem 'normalize-scss'
 # a collection of html elements and attribute rulesets to normalize styles across all browsers
 gem 'autoprefixer-rails'
 
+gem 'faker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
