@@ -2,12 +2,12 @@
 
 one:
   name: MyString
+  email: MyString
   specialty: MyString
-  experience: 
-  email: 
+  experience: 1
 
 two:
   name: MyString
+  email: MyString
   specialty: MyString
-  experience: 
-  email: 
+  experience: 1

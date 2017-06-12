@@ -10,51 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611180756) do
+ActiveRecord::Schema.define(version: 20170612013130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "acceptances", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "contacts", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "phone"
-    t.bigint "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_contacts_on_client_id"
-  end
-
-  create_table "declines", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "fm_reps", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "providers", force: :cascade do |t|
     t.string "name"
-    t.string "specialty"
-    t.decimal "experience"
     t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "submissions", force: :cascade do |t|
+    t.string "specialty"
+    t.integer "experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,5 +35,4 @@ ActiveRecord::Schema.define(version: 20170611180756) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "contacts", "clients"
 end

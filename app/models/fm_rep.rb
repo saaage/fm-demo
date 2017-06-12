@@ -1,2 +1,0 @@
-class FmRep < ApplicationRecord
-end
