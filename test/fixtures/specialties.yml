@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  providertype: MyString
+  specialty: MyString
+  subspecialty: MyString
+
+two:
+  providertype: MyString
+  specialty: MyString
+  subspecialty: MyString

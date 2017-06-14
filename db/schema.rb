@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614061657) do
+ActiveRecord::Schema.define(version: 20170614064704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,26 @@ ActiveRecord::Schema.define(version: 20170614061657) do
     t.index ["states_id"], name: "index_providers_on_states_id"
   end
 
+  create_table "providers_specialties", id: false, force: :cascade do |t|
+    t.bigint "provider_id", null: false
+    t.bigint "specialty_id", null: false
+    t.index ["provider_id", "specialty_id"], name: "index_providers_specialties_on_provider_id_and_specialty_id"
+    t.index ["specialty_id", "provider_id"], name: "index_providers_specialties_on_specialty_id_and_provider_id"
+  end
+
   create_table "providers_states", id: false, force: :cascade do |t|
     t.bigint "provider_id", null: false
     t.bigint "state_id", null: false
     t.index ["provider_id", "state_id"], name: "index_providers_states_on_provider_id_and_state_id"
     t.index ["state_id", "provider_id"], name: "index_providers_states_on_state_id_and_provider_id"
+  end
+
+  create_table "specialties", force: :cascade do |t|
+    t.string "provider_type"
+    t.string "specialty"
+    t.string "sub_specialty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "states", force: :cascade do |t|

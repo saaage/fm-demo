@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name: "Example User",
-             email: "example@railstutorial.org",
+             email: "example@fleetmed.org",
              password: "foobar",
              password_confirmation: "foobar",
              admin: true)
 
 99.times do |n|
   name = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@fleetmed.org"
   password = "password"
   User.create!(name: name,
                email: email,
@@ -81,4 +81,26 @@ states = Array[ ["AK", "Alaska"],
 states.each do |s|
   State.create!( name: s[1],
                  abbreviation: s[0])
+end
+
+specialties = Array[ ["Physician", "Family Medicine"],
+                     ["Physician", "Internal Medicine"],
+                     ["Physician", "Internal Medicine", "Cardiologist"],
+                     ["Physician", "OBGYN"],
+                     ["Physician", "Pediatrician"],
+                     ["Physician", "Internal Medicine", "Gastroenterologist"],
+                     ["Physician", "Pediatrician", "Cardiologist"] ]
+
+specialties.each do |s|
+  Specialty.create!( provider_type: s[0],
+                     specialty: s[1],
+                     sub_specialty: s[2])
+end
+
+20.times do |n|
+  name = Faker::Name.name
+  email = "example-#{n+1}@fleetmed.com"
+  Provider.create!(name: name,
+                   email: email,
+                   experience: rand(1...22) )
 end
