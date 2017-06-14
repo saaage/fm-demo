@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613043451) do
+ActiveRecord::Schema.define(version: 20170613225844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20170613043451) do
     t.integer "experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "states_id"
+    t.index ["states_id"], name: "index_providers_on_states_id"
+  end
+
+  create_table "providers_states", id: false, force: :cascade do |t|
+    t.bigint "provider_id", null: false
+    t.bigint "state_id", null: false
+    t.index ["provider_id", "state_id"], name: "index_providers_states_on_provider_id_and_state_id"
+    t.index ["state_id", "provider_id"], name: "index_providers_states_on_state_id_and_provider_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -42,4 +51,5 @@ ActiveRecord::Schema.define(version: 20170613043451) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "providers", "states", column: "states_id"
 end

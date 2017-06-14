@@ -33,8 +33,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'normalize-scss'
 # a collection of html elements and attribute rulesets to normalize styles across all browsers
 gem 'autoprefixer-rails'
-
+# takes care of browser prefixes that need to end up in our CSS
 gem 'faker'
+# creates fake names for our User DB
+gem 'table_print'
+# allows us to view full tables in rails console
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
