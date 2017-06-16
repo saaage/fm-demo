@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614195131) do
+ActiveRecord::Schema.define(version: 20170616163021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,22 @@ ActiveRecord::Schema.define(version: 20170614195131) do
     t.index ["state_id"], name: "index_clients_on_state_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.string "email"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_contacts_on_client_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.integer "experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "states_id"
-    t.index ["states_id"], name: "index_providers_on_states_id"
   end
 
   create_table "providers_specialties", id: false, force: :cascade do |t|
@@ -76,5 +84,5 @@ ActiveRecord::Schema.define(version: 20170614195131) do
   end
 
   add_foreign_key "clients", "states"
-  add_foreign_key "providers", "states", column: "states_id"
+  add_foreign_key "contacts", "clients"
 end

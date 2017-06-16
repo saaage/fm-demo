@@ -5,3 +5,4 @@ class CreateJoinTableProvidersStates < ActiveRecord::Migration[5.1]
       t.index [:state_id, :provider_id]
     end
   end
+end
