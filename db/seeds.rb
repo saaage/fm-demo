@@ -12,6 +12,7 @@ User.create!(name: "Example User",
              password_confirmation: "foobar",
              admin: true)
 
+# seed DB with users
 99.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@fleetmed.org"
@@ -78,11 +79,13 @@ states = Array[ ["AK", "Alaska"],
                 ["WV", "West Virginia"],
                 ["WY", "Wyoming"] ]
 
+# seed DB with our States
 states.each do |s|
   State.create!( name: s[1],
                  abbreviation: s[0])
 end
 
+# seed DB with arrays
 specialties = Array[ ["Physician", "Family Medicine"],
                      ["Physician", "Internal Medicine"],
                      ["Physician", "Internal Medicine", "Cardiologist"],
@@ -97,10 +100,23 @@ specialties.each do |s|
                      sub_specialty: s[2])
 end
 
+# seed DB with providers
 20.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@fleetmed.com"
   Provider.create!(name: name,
                    email: email,
                    experience: rand(1...22) )
+end
+
+# seed DB with clients
+10.times do |n|
+  name = Faker::Company.name
+  address = Faker::Address.street_address
+  website = Faker::Internet.url
+  random = rand(1...51)
+  client = Client.create!(name: name,
+                 address: address,
+                 state_id: random,
+                 website: website )
 end
