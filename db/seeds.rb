@@ -5,14 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+# User.create!(name: "Admin User",
+#              email: "admin@fleetmed.org",
+#              password: "foobar",
+#              password_confirmation: "foobar",
+#              admin: true)
 
-User.create!(name: "Example User",
-             email: "example@fleetmed.org",
-             password: "foobar",
-             password_confirmation: "foobar",
-             admin: true)
+#seed DB with roles
+roles = ["fm_admin", "fm_rep", "client_admin", "client_contact", "provider"]
 
-99.times do |n|
+roles.each do |r|
+  Role.create!(role_type: r)
+end
+
+# seed DB with users
+30.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@fleetmed.org"
   password = "password"
@@ -78,11 +86,13 @@ states = Array[ ["AK", "Alaska"],
                 ["WV", "West Virginia"],
                 ["WY", "Wyoming"] ]
 
+# seed DB with our States
 states.each do |s|
   State.create!( name: s[1],
                  abbreviation: s[0])
 end
 
+# seed DB with arrays
 specialties = Array[ ["Physician", "Family Medicine"],
                      ["Physician", "Internal Medicine"],
                      ["Physician", "Internal Medicine", "Cardiologist"],
@@ -97,10 +107,35 @@ specialties.each do |s|
                      sub_specialty: s[2])
 end
 
+# seed DB with providers
 20.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@fleetmed.com"
   Provider.create!(name: name,
                    email: email,
                    experience: rand(1...22) )
+end
+
+# seed DB with clients
+10.times do |n|
+  name = Faker::Company.name
+  address = Faker::Address.street_address
+  website = Faker::Internet.url
+  random = rand(1...51)
+  client = Client.create!(name: name,
+                 address: address,
+                 state_id: random,
+                 website: website )
+end
+
+# seed DB with contacts
+10.times do |n|
+  name = Faker::Name.name
+  phone_number = Faker::PhoneNumber.phone_number
+  email = Faker::Internet.email
+  random = rand(1..10)
+  Contact.create!(name: name,
+                  phone_number: phone_number,
+                  email: email,
+                  client_id: random )
 end

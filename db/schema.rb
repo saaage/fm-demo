@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614064704) do
+ActiveRecord::Schema.define(version: 20170616205512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.bigint "state_id"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_clients_on_state_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.string "email"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_contacts_on_client_id"
+  end
 
   create_table "providers", force: :cascade do |t|
     t.string "name"
@@ -21,8 +41,6 @@ ActiveRecord::Schema.define(version: 20170614064704) do
     t.integer "experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "states_id"
-    t.index ["states_id"], name: "index_providers_on_states_id"
   end
 
   create_table "providers_specialties", id: false, force: :cascade do |t|
@@ -37,6 +55,12 @@ ActiveRecord::Schema.define(version: 20170614064704) do
     t.bigint "state_id", null: false
     t.index ["provider_id", "state_id"], name: "index_providers_states_on_provider_id_and_state_id"
     t.index ["state_id", "provider_id"], name: "index_providers_states_on_state_id_and_provider_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "specialties", force: :cascade do |t|
@@ -62,8 +86,12 @@ ActiveRecord::Schema.define(version: 20170614064704) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.bigint "role_id", default: 2
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "providers", "states", column: "states_id"
+  add_foreign_key "clients", "states"
+  add_foreign_key "contacts", "clients"
+  add_foreign_key "users", "roles"
 end
