@@ -5,12 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+# User.create!(name: "Admin User",
+#              email: "admin@fleetmed.org",
+#              password: "foobar",
+#              password_confirmation: "foobar",
+#              admin: true)
 
-User.create!(name: "Admin User",
-             email: "admin@fleetmed.org",
-             password: "foobar",
-             password_confirmation: "foobar",
-             admin: true)
+#seed DB with roles
+roles = ["fm_admin", "fm_rep", "client_admin", "client_contact", "provider"]
+
+roles.each do |r|
+  Role.create!(role_type: r)
+end
 
 # seed DB with users
 30.times do |n|
@@ -126,7 +133,7 @@ end
   name = Faker::Name.name
   phone_number = Faker::PhoneNumber.phone_number
   email = Faker::Internet.email
-  random = rand(1...9)
+  random = rand(1..10)
   Contact.create!(name: name,
                   phone_number: phone_number,
                   email: email,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616163021) do
+ActiveRecord::Schema.define(version: 20170616205512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(version: 20170616163021) do
     t.index ["state_id", "provider_id"], name: "index_providers_states_on_state_id_and_provider_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "role_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "specialties", force: :cascade do |t|
     t.string "provider_type"
     t.string "specialty"
@@ -80,9 +86,12 @@ ActiveRecord::Schema.define(version: 20170616163021) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.bigint "role_id", default: 2
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   add_foreign_key "clients", "states"
   add_foreign_key "contacts", "clients"
+  add_foreign_key "users", "roles"
 end
