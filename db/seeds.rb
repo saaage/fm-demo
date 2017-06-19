@@ -24,10 +24,12 @@ end
   name = Faker::Name.name
   email = "example-#{n+1}@fleetmed.org"
   password = "password"
-  User.create!(name: name,
-               email: email,
-               password: password,
-               password_confirmation: password)
+  random = rand(1..5)
+  User.create!( name: name,
+                email: email,
+                password: password,
+                password_confirmation: password,
+                role_id: random )
 end
 
 states = Array[ ["AK", "Alaska"],
@@ -108,13 +110,13 @@ specialties.each do |s|
 end
 
 # seed DB with providers
-20.times do |n|
-  name = Faker::Name.name
-  email = "example-#{n+1}@fleetmed.com"
-  Provider.create!(name: name,
-                   email: email,
-                   experience: rand(1...22) )
-end
+# 20.times do |n|
+#   name = Faker::Name.name
+#   email = "example-#{n+1}@fleetmed.com"
+#   Provider.create!(name: name,
+#                    email: email,
+#                    experience: rand(1...22) )
+# end
 
 # seed DB with clients
 10.times do |n|
@@ -129,13 +131,13 @@ end
 end
 
 # seed DB with contacts
-10.times do |n|
-  name = Faker::Name.name
-  phone_number = Faker::PhoneNumber.phone_number
-  email = Faker::Internet.email
-  random = rand(1..10)
-  Contact.create!(name: name,
-                  phone_number: phone_number,
-                  email: email,
-                  client_id: random )
-end
+# 10.times do |n|
+#   name = Faker::Name.name
+#   phone_number = Faker::PhoneNumber.phone_number
+#   email = Faker::Internet.email
+#   random = rand(1..10)
+#   Contact.create!(name: name,
+#                   phone_number: phone_number,
+#                   email: email,
+#                   client_id: random )
+# end

@@ -1,5 +1,9 @@
 class User < ApplicationRecord
 
+  belongs_to :role
+  has_one :provider
+  has_one :contact, dependent: :destroy
+
   attr_accessor :remember_token
   # makes remember_token accessible to an instance of User
 
@@ -7,8 +11,6 @@ class User < ApplicationRecord
 
   before_save { email.downcase! }
   # some databases consider duplicate email addresses to be unique even if they are the same, but in a different case. Before saving we will convert all emails to lowercase so that our 'unique' attribute functions as intended.
-
-  belongs_to :role
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true,
