@@ -1,17 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+fm_admin:
   id: 1
   role_type: 'fm_admin'
 
-two:
+fm_rep:
   id: 2
   role_type: 'fm_rep'
 
-three:
+client_admin:
   id: 3
-  role_type: 'provider'
+  role_type: 'client_admin'
 
-four:
+
+client_contact:
   id: 4
-  role_type: 'contact'
+  role_type: 'client_contact'
+
+
+provider:
+  id: 5
+  role_type: 'provider'

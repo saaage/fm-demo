@@ -15,13 +15,13 @@ lana:
   name: Lana Kane
   email: hands@example.gov
   password_digest: <%= User.digest('password') %>
-  role_id: 2
+  role_id: 4
 
 malory:
   name: Malory Archer
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
-  role_id: 2
+  role_id: 4
 
 <% 30.times do |n| %>
 user_<%= n %>:
