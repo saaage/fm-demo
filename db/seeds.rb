@@ -94,7 +94,18 @@ states.each do |s|
                  abbreviation: s[0])
 end
 
-# seed DB with arrays
+# seed DB with clients
+10.times do |n|
+  name = Faker::Company.name
+  address = Faker::Address.street_address
+  website = Faker::Internet.url
+  random = rand(1...51)
+  client = Client.create!(name: name,
+                 address: address,
+                 state_id: random,
+                 website: website )
+end
+
 specialties = Array[ ["Physician", "Family Medicine"],
                      ["Physician", "Internal Medicine"],
                      ["Physician", "Internal Medicine", "Cardiologist"],
@@ -116,28 +127,4 @@ end
 #   Provider.create!(name: name,
 #                    email: email,
 #                    experience: rand(1...22) )
-# end
-
-# seed DB with clients
-10.times do |n|
-  name = Faker::Company.name
-  address = Faker::Address.street_address
-  website = Faker::Internet.url
-  random = rand(1...51)
-  client = Client.create!(name: name,
-                 address: address,
-                 state_id: random,
-                 website: website )
-end
-
-# seed DB with contacts
-# 10.times do |n|
-#   name = Faker::Name.name
-#   phone_number = Faker::PhoneNumber.phone_number
-#   email = Faker::Internet.email
-#   random = rand(1..10)
-#   Contact.create!(name: name,
-#                   phone_number: phone_number,
-#                   email: email,
-#                   client_id: random )
 # end
