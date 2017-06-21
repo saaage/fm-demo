@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+dr_bob_ent:
   client: one
-  address: MyString
+  address: '12 Hospital Way'
   state: one
 
 two:
   client: two
-  address: MyString
+  address: '123 Invalid St.'
   state: two
