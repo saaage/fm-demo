@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621184719) do
+ActiveRecord::Schema.define(version: 20170621192624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,20 @@ ActiveRecord::Schema.define(version: 20170621184719) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "submissions", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "provider_id"
+    t.string "app_status"
+    t.boolean "accepted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["app_status"], name: "index_submissions_on_app_status"
+    t.index ["job_id", "provider_id"], name: "index_submissions_on_job_id_and_provider_id"
+    t.index ["job_id"], name: "index_submissions_on_job_id"
+    t.index ["provider_id", "job_id"], name: "index_submissions_on_provider_id_and_job_id"
+    t.index ["provider_id"], name: "index_submissions_on_provider_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -125,6 +139,8 @@ ActiveRecord::Schema.define(version: 20170621184719) do
   add_foreign_key "fm_reps", "users"
   add_foreign_key "jobs", "clients"
   add_foreign_key "providers", "users"
+  add_foreign_key "submissions", "jobs"
+  add_foreign_key "submissions", "providers"
   add_foreign_key "users", "roles"
   add_foreign_key "work_sites", "clients"
   add_foreign_key "work_sites", "states"
