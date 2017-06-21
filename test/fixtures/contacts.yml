@@ -4,8 +4,10 @@ malory:
   id: 1
   client: one
   user: malory
+  job_title: "Contact Fixture"
 
 archer:
   id: 2
   client: two
   user: archer
+  job_title: "Contact Fixture"
