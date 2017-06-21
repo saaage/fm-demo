@@ -5,6 +5,13 @@ michelle:
   admin: true
   role_id: 1
 
+iama_client_admin:
+  name: Suzy Corporate
+  email: suzy@uhs.org
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  role_id: 1
+
 archer:
   name: Sterling Archer
   email: duchess@example.gov
@@ -20,6 +27,18 @@ lana:
 malory:
   name: Malory Archer
   email: boss@example.gov
+  password_digest: <%= User.digest('password') %>
+  role_id: 4
+
+iamadoctor:
+  name: Dr. John Medic
+  email: medic@fixtures.com
+  password_digest: <%= User.digest('password') %>
+  role_id: 5
+
+iamafrauddoc:
+  name: Dr. Fake McFaker
+  email: fakedoc@fixtures.com
   password_digest: <%= User.digest('password') %>
   role_id: 4
 

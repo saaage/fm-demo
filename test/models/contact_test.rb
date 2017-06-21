@@ -5,7 +5,7 @@ class ContactTest < ActiveSupport::TestCase
   def setup
     @contact_via_client_contact = contacts(:malory)
     @contact_via_non_client_contact = contacts(:archer)
-    @imposter = Contact.new( client_id: clients(:one),
+    @redundant_contact = Contact.new( client_id: clients(:one),
                             user_id: users(:malory).id )
   end
 
@@ -18,7 +18,7 @@ class ContactTest < ActiveSupport::TestCase
   end
 
   test "Contact will not be saved if User already associated with another Contact" do
-    assert_not @imposter.save
+    assert_not @redundant_contact.save
   end
 
 end

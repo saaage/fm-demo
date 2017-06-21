@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   belongs_to :role
-  has_one :provider
+  has_one :provider, dependent: :destroy
   has_one :contact, dependent: :destroy
 
   attr_accessor :remember_token

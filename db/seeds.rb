@@ -122,9 +122,6 @@ end
 
 # seed DB with providers
 # 20.times do |n|
-#   name = Faker::Name.name
-#   email = "example-#{n+1}@fleetmed.com"
-#   Provider.create!(name: name,
-#                    email: email,
-#                    experience: rand(1...22) )
+#   random = rand(1..7)
+#   Provider.create!( experience: rand(1...22), )
 # end

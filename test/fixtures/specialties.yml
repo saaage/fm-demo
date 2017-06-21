@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   provider_type: MyString
   specialty: MyString
   sub_specialty: MyString
 
 two:
+  id: 2
   provider_type: MyString
   specialty: MyString
   sub_specialty: MyString

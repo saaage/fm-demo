@@ -6,5 +6,5 @@ class ProvidersControllerTest < ActionDispatch::IntegrationTest
     get '/providers'
     assert_response :success
   end
-  
+
 end
