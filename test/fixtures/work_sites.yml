@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  address: MyString
+  state: one
+
+two:
+  client: two
+  address: MyString
+  state: two

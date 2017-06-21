@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621012927) do
+ActiveRecord::Schema.define(version: 20170621174506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,10 +102,22 @@ ActiveRecord::Schema.define(version: 20170621012927) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  create_table "work_sites", force: :cascade do |t|
+    t.bigint "client_id"
+    t.string "address"
+    t.bigint "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_work_sites_on_client_id"
+    t.index ["state_id"], name: "index_work_sites_on_state_id"
+  end
+
   add_foreign_key "clients", "states"
   add_foreign_key "contacts", "clients"
   add_foreign_key "contacts", "users"
   add_foreign_key "fm_reps", "users"
   add_foreign_key "providers", "users"
   add_foreign_key "users", "roles"
+  add_foreign_key "work_sites", "clients"
+  add_foreign_key "work_sites", "states"
 end
