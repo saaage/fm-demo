@@ -96,6 +96,7 @@ GEM
     normalize-scss (7.0.0)
       sass (~> 3.3)
     pg (0.20.0)
+    phonelib (0.6.12)
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.3)
@@ -199,6 +200,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   normalize-scss
   pg
+  phonelib
   puma (~> 3.7)
   rails (~> 5.1.0)
   rails-controller-testing

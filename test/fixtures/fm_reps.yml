@@ -1,0 +1,13 @@
+vera_the_valid_rep:
+  user: vera
+  nickname: '@goldenchild'
+  birthday: 2017-06-20
+  cell_number: '747.543.2837'
+  work_number: '(361) 315-2356'
+
+johnny_bad_number:
+  user: two
+  nickname: '@typojohnny'
+  birthday: 2017-06-21
+  cell_number: '214298000'
+  work_number: '813-607-6837'

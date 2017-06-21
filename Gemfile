@@ -38,6 +38,8 @@ gem 'faker'
 # creates fake names for our User DB
 gem 'table_print'
 # allows us to view full tables in rails console
+gem 'phonelib'
+# phone number validation based on Google's libphonenumber - https://github.com/googlei18n/libphonenumber
 
 
 # Use Capistrano for deployment

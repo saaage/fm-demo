@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :role
   has_one :provider, dependent: :destroy
   has_one :contact, dependent: :destroy
+  has_one :fm_rep, dependent: :destroy
 
   attr_accessor :remember_token
   # makes remember_token accessible to an instance of User

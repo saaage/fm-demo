@@ -42,6 +42,12 @@ iamafrauddoc:
   password_digest: <%= User.digest('password') %>
   role_id: 4
 
+vera:
+  name: Vera Rep
+  email: vera@fleetmed.org
+  password_digest: <%= User.digest('password') %>
+  role_id: 2
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "User #{n}" %>

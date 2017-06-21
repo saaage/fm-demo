@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621001337) do
+ActiveRecord::Schema.define(version: 20170621012927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20170621001337) do
     t.bigint "user_id"
     t.index ["client_id"], name: "index_contacts_on_client_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "fm_reps", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "nickname"
+    t.string "cell_number"
+    t.string "work_number"
+    t.date "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_fm_reps_on_user_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -94,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170621001337) do
   add_foreign_key "clients", "states"
   add_foreign_key "contacts", "clients"
   add_foreign_key "contacts", "users"
+  add_foreign_key "fm_reps", "users"
   add_foreign_key "providers", "users"
   add_foreign_key "users", "roles"
 end
