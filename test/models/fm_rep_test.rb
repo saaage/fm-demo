@@ -7,11 +7,11 @@ class FmRepTest < ActiveSupport::TestCase
     @invalid_rep = fm_reps(:johnny_bad_number)
   end
 
-  test "FmRep can be created using valid phone numbers" do
+  test "FmRep can be created with valid phone number" do
     assert @valid_rep.valid?
   end
 
-  test "FmRep will not be saved with invalid phone numbers" do
+  test "FmRep will not be saved with invalid phone number" do
     assert_not @invalid_rep.valid?
   end
 
