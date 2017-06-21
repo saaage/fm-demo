@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20170621192624) do
   create_table "submissions", force: :cascade do |t|
     t.bigint "job_id"
     t.bigint "provider_id"
-    t.string "app_status"
+    t.string "app_status", default: "Submitted"
     t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

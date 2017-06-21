@@ -3,7 +3,7 @@ require 'test_helper'
 class WorkSiteTest < ActiveSupport::TestCase
 
   def setup
-    @worksite = work_sites(:dr_bob_ent)
+    @worksite = work_sites(:dr_bob_ent_clinic)
   end
 
   test "Work Sites can be created" do

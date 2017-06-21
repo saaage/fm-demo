@@ -3,7 +3,6 @@
 submission_0001:
   job: job_0001
   provider: dr_nick
-  app_status: 'Satuses Pending'
 
 # submission_0002:
 #   job: job_0002

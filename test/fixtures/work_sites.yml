@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-dr_bob_ent:
+dr_bob_ent_clinic:
   client: one
   address: '12 Hospital Way'
   state: one

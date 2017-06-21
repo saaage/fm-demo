@@ -5,8 +5,8 @@ class ContactTest < ActiveSupport::TestCase
   def setup
     @contact_via_client_contact = contacts(:malory)
     @contact_via_non_client_contact = contacts(:archer)
-    @redundant_contact = Contact.new( client_id: clients(:one),
-                            user_id: users(:malory).id )
+    @redundant_contact = Contact.new( client: clients(:one),
+                                      user: users(:malory))
   end
 
   test "Contact can be created using role type client_admin" do

@@ -6,7 +6,7 @@ class ProviderTest < ActiveSupport::TestCase
     @provider_with_role_provider = providers(:dr_nick)
     @provider_without_role_provider = providers(:dr_quack)
     @redundant_provider = Provider.new( experience: 0,
-                             user_id: users(:iamadoctor).id )
+                                        user: users(:iamadoctor) )
   end
 
   test "Provider can be associated with a User containing role type provider" do
