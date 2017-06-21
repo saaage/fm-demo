@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+job_0001:
+  client: one
+
+job_0002:
+  client: two
