@@ -1,16 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 20170621192624) do
+ActiveRecord::Schema.define(version: 20170622001953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +23,13 @@ ActiveRecord::Schema.define(version: 20170621192624) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "contacts_jobs", id: false, force: :cascade do |t|
+    t.bigint "contact_id", null: false
+    t.bigint "job_id", null: false
+    t.index ["contact_id", "job_id"], name: "index_contacts_jobs_on_contact_id_and_job_id"
+    t.index ["job_id", "contact_id"], name: "index_contacts_jobs_on_job_id_and_contact_id"
+  end
+
   create_table "fm_reps", force: :cascade do |t|
     t.bigint "user_id"
     t.string "nickname"
@@ -46,11 +41,32 @@ ActiveRecord::Schema.define(version: 20170621192624) do
     t.index ["user_id"], name: "index_fm_reps_on_user_id"
   end
 
+  create_table "fm_reps_jobs", id: false, force: :cascade do |t|
+    t.bigint "fm_rep_id", null: false
+    t.bigint "job_id", null: false
+    t.index ["fm_rep_id", "job_id"], name: "index_fm_reps_jobs_on_fm_rep_id_and_job_id"
+    t.index ["job_id", "fm_rep_id"], name: "index_fm_reps_jobs_on_job_id_and_fm_rep_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_jobs_on_client_id"
+  end
+
+  create_table "jobs_specialties", id: false, force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "specialty_id", null: false
+    t.index ["job_id", "specialty_id"], name: "index_jobs_specialties_on_job_id_and_specialty_id"
+    t.index ["specialty_id", "job_id"], name: "index_jobs_specialties_on_specialty_id_and_job_id"
+  end
+
+  create_table "jobs_states", id: false, force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.bigint "state_id", null: false
+    t.index ["job_id", "state_id"], name: "index_jobs_states_on_job_id_and_state_id"
+    t.index ["state_id", "job_id"], name: "index_jobs_states_on_state_id_and_job_id"
   end
 
   create_table "providers", force: :cascade do |t|
