@@ -83,14 +83,16 @@ states.each do |s|
 end
 
 # seed DB with clients
-10.times do |n|
+20.times do |n|
   name = Faker::Company.name
   address = Faker::Address.street_address
   website = Faker::Internet.url
+  phone = Faker::PhoneNumber.phone_number
   random = rand(1...51)
   client = Client.create!(name: name,
                  address: address,
                  state_id: random,
+                 main_phone: phone,
                  website: website )
 end
 

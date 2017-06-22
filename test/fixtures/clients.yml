@@ -5,9 +5,11 @@ one:
   address: MyString
   state: one
   website: MyString
+  main_phone: '618-402-8050'
 
 two:
   name: MyString
   address: MyString
   state: two
   website: MyString
+  main_phone: '310.314.7836'
