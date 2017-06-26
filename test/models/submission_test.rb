@@ -13,7 +13,7 @@ class SubmissionTest < ActiveSupport::TestCase
   test "Default value for application status should be 'Submitted' " do
     test_sub = Submission.create!( job: jobs(:job_0001),
                                    provider: providers(:dr_nick) )
-    assert test_sub.app_status == 'Submitted'
+    assert test_sub.app_status = 0
   end
 
   test "Default acceptance status should be false" do
