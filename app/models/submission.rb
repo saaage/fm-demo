@@ -1,8 +1,8 @@
 class Submission < ApplicationRecord
-  # submission contains refernce to a job and a provider
-  # each submission have a column for application status(string) and acceptance status(boolean)
+
+  enum app_status: { submitted: 0, in_review: 1, review_complete: 2 }
+
   belongs_to :job
   belongs_to :provider
-
 
 end
