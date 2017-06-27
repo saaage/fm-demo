@@ -24,4 +24,5 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 
-# fm-demo
+# Objective
+To become familiar with Ruby, Rails, and Active Record and create an API that will serve our database to a front end application written in Javascript.
